@@ -1,31 +1,17 @@
 ## A GUI for reveal.js
 
-Create web presentations in the browsers
+Créer une présentation WEB depuis votre navigateur grace à KREATOR
 
 ## Demo
 
-[Available on github pages](http://piatra.github.com/kreator.js)
+http://piatra.github.com/kreator.js
 
-## Running locally
+## Installation
 
   - `npm install` (fetch dependencies)
   - `npm install -g http-server` (or if you have python installed skip this step)
   - `gulp` (build)
   - `http-server` (or python -m SimpleHTTPServer if you skipped #2)
-
-If you are running Ubuntu some people have reported issues. [Here are instructions](https://github.com/piatra/kreator.js/issues/38) that have been reported to work.
-
-Now go in your browser at `localhost:8080` where kreator.js will be running locally :)
-
-## Remote control
-
-![Screenshot](http://imgur.com/5K7Xw3I.png)
-
-You can use a remote device to control the slides.
-
-There is a "Use device as remote" button in the sidemenu of the application.
-
-While having your presentation open [go to this url](http://piatra.github.io/kreator.js/output/remote.html) copy the given code and enter it in the box that appears when you click "Use device as remote". You will then be able to change the slides from your phone. You also have a timer to keep track of your progress.
 
 
 ## Development
