@@ -1,35 +1,25 @@
-## A GUI for reveal.js
+## Une interface pour EAST
 
 Créer une présentation WEB depuis votre navigateur grace à KREATOR
 
 ## Demo
 
-http://piatra.github.com/kreator.js
 
 ## Installation
 
-  - `npm install` (fetch dependencies)
-  - `npm install -g http-server` (or if you have python installed skip this step)
-  - `gulp` (build)
-  - `http-server` (or python -m SimpleHTTPServer if you skipped #2)
 
 
 ## Development
 
-For upcoming features check out [future-release](https://github.com/piatra/kreator.js/issues?labels=future-release&page=1&state=open) tags in the issues
+Site permettant la création de présentation XML compatible sous EAST
 
-### To build
+### Construction
 
-````
-npm install -g gulp
-gulp watch
 
-````
 
-## About
+## A propos
 
-GUI Editor for reveal.js
-https://github.com/hakimel/reveal.js/issues/31
+Réalisé par des Etudiants en M2 MIAGE de l’université d’EVRY (91) France 
 
 ## Copyright and license
 
