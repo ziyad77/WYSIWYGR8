@@ -1,6 +1,6 @@
-## Une interface pour EAST
+## GUI pour EAST
 
-Créer une présentation WEB depuis votre navigateur grace à KREATOR
+Créer une présentation XML compatible EAST depuis votre navigateur grace à XEDITOR
 
 ## Demo
 
@@ -8,18 +8,12 @@ Créer une présentation WEB depuis votre navigateur grace à KREATOR
 ## Installation
 
 
-
 ## Development
 
-Site permettant la création de présentation XML compatible sous EAST
 
-### Construction
+### To build
 
-
-
-## A propos
-
-Réalisé par des Etudiants en M2 MIAGE de l’université d’EVRY (91) France 
+## About
 
 ## Copyright and license
 
