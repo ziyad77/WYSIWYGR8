@@ -1,0 +1,1741 @@
+{
+  "xs:schema": {
+    "-xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "-xml:lang": "fr",
+    "xs:element": [
+      {
+        "-name": "EAST",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "PREFERENCES"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "METADONNEES"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "LOGO_GAUCHE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "LOGO_DROIT"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "PIEDPAGE_GAUCHE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "PIEDPAGE_DROIT"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "1",
+                "-ref": "PAGE_TITRE"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "1",
+                "-ref": "PARTIE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "PAGE_CONCLUSION"
+              }
+            ]
+          },
+          "xs:attribute": {
+            "-name": "transition",
+            "-type": "transitiontype",
+            "-use": "optional"
+          }
+        }
+      },
+      {
+        "-name": "PAGE_TITRE",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "1",
+                "-ref": "TITRE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "SOUS_TITRE"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "0",
+                "-ref": "AUTEUR"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "0",
+                "-ref": "EMAIL"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "IDENTIFIANT"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "DATE_EXPOSE"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "PAGE_CONCLUSION",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "1",
+                "-ref": "PARAGRAPHE"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "0",
+                "-ref": "EMAIL"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "METADONNEES",
+        "xs:annotation": {
+          "xs:documentation": "
+          Métadonnees sur le document (auteurs, date de création).
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "0",
+                "-ref": "AUTEUR"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "DATECRE"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "PREFERENCES",
+        "xs:annotation": {
+          "xs:documentation": "
+          Choix globaux et preferences d'affichage
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "COMMENTAIRES"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "IMPRESSION"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "unbounded",
+                "-ref": "PUCE"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "PAGE"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "TITLES"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "ENV"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "TABLES"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "TITLE_PAGE"
+              },
+              {
+                "-minOccurs": "0",
+                "-maxOccurs": "1",
+                "-ref": "BARRE_BOUTONS"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "PUCE",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "level",
+              "-type": "xs:positiveInteger",
+              "-use": "required"
+            },
+            {
+              "-name": "type",
+              "-type": "itemtype",
+              "-use": "optional"
+            },
+            {
+              "-name": "colorpuce",
+              "-type": "CSScolor",
+              "-use": "optional"
+            },
+            {
+              "-name": "colortexte",
+              "-type": "CSScolor",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "PAGE",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "linkcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "TITLE_PAGE",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "TITLES",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "ENV",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "titlecolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "titlefont",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "titleback",
+              "-type": "Allcolors",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "TABLES",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              { "-ref": "TAB_ENTETE" },
+              { "-ref": "TAB_CORPS" }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "TAB_ENTETE",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "TAB_CORPS",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "BARRE_BOUTONS",
+        "xs:annotation": {
+          "xs:documentation": "
+          Activation/Désactivation de la barre des boutons en bas de page
+          "
+        },
+        "xs:complexType": {
+          "xs:attribute": {
+            "-name": "display",
+            "-type": "ouinon",
+            "-default": "oui",
+            "-use": "optional"
+          }
+        }
+      },
+      {
+        "-name": "COMMENTAIRES",
+        "xs:annotation": {
+          "xs:documentation": "
+          Indique si les commentaires de l'auteur seront affichés dans le resultat.
+          "
+        },
+        "xs:complexType": {
+          "xs:simpleContent": {
+            "xs:extension": {
+              "-base": "ouinon",
+              "xs:attribute": {
+                "-name": "color",
+                "-type": "Allcolors",
+                "-default": "#196419",
+                "-use": "optional"
+              }
+            }
+          }
+        }
+      },
+      {
+        "-name": "IMPRESSION",
+        "-type": "ouinon",
+        "xs:annotation": {
+          "xs:documentation": "
+          Indique si le document doit être préparé pour l'impression (avec les numéros de pages).
+          "
+        }
+      },
+      {
+        "-name": "TITRE",
+        "-type": "xs:string"
+      },
+      {
+        "-name": "SOUS_TITRE",
+        "-type": "xs:string"
+      },
+      {
+        "-name": "EMAIL",
+        "-type": "EmailAddress"
+      },
+      {
+        "-name": "AUTEUR",
+        "-type": "xs:string"
+      },
+      {
+        "-name": "IDENTIFIANT",
+        "xs:annotation": {
+          "xs:documentation": "
+          Identifiant public unique de l'expose.
+          L'attribut type est la classe ou catégorie de l'exposé.
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:attribute": {
+            "-name": "TYPE",
+            "-type": "xs:string"
+          }
+        }
+      },
+      {
+        "-name": "DATE_EXPOSE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Date réelle de l'exposé. Intervient au milieu du bas de page de la page de titre
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:attribute": {
+            "-name": "TYPE",
+            "-type": "xs:string"
+          }
+        }
+      },
+      {
+        "-name": "DATECRE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Date de création.
+          "
+        },
+        "xs:simpleType": {
+          "xs:restriction": {
+            "-base": "xs:string",
+            "xs:pattern": {
+              "-value": "[0-3]?[0-9]/[0-1]?[0-9]/[1-2][0-9][0-9][0-9]"
+            }
+          }
+        }
+      },
+      {
+        "-name": "LOGO_GAUCHE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Logo gauche pour le document, éventuellement avec un lien si on clique dessus.
+          "
+        },
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "fichier",
+              "-type": "xs:anyURI",
+              "-use": "required"
+            },
+            {
+              "-name": "url",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "alt",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "image_alternative",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-default": "10",
+              "-name": "largeur_SVG",
+              "-type": "percentage",
+              "-use": "optional"
+            },
+            {
+              "-default": "10",
+              "-name": "hauteur_SVG",
+              "-type": "percentage",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "LOGO_DROIT",
+        "xs:annotation": {
+          "xs:documentation": "
+          Logo droit pour le document, éventuellement avec un lien si on clique dessus.
+          "
+        },
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "fichier",
+              "-type": "xs:anyURI",
+              "-use": "required"
+            },
+            {
+              "-name": "url",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "alt",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "image_alternative",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-default": "10",
+              "-name": "largeur_SVG",
+              "-type": "percentage",
+              "-use": "optional"
+            },
+            {
+              "-default": "10",
+              "-name": "hauteur_SVG",
+              "-type": "percentage",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "PIEDPAGE_GAUCHE",
+        "-type": "xs:string"
+      },
+      {
+        "-name": "PIEDPAGE_DROIT",
+        "-type": "xs:string"
+      },
+      {
+        "-name": "PARTIE",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "TITRE"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "1",
+                "-ref": "SECTION"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "SECTION",
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": {
+              "-maxOccurs": "1",
+              "-minOccurs": "0",
+              "-ref": "TITRE"
+            },
+            "xs:choice": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "0",
+              "xs:element": [
+                { "-ref": "PARAGRAPHE" },
+                { "-ref": "LISTE" },
+                { "-ref": "LISTEDEF" },
+                { "-ref": "TABLEAU" },
+                { "-ref": "EXEMPLE" },
+                { "-ref": "ENVIMAGE" },
+                { "-ref": "ENVIDEO" },
+                { "-ref": "COMMENTAIRE" },
+                { "-ref": "APPLET" },
+                { "-ref": "HTML" }
+              ]
+            }
+          },
+          "xs:attribute": [
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "PARAGRAPHE",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:sequence": {
+            "xs:element": {
+              "-maxOccurs": "1",
+              "-minOccurs": "0",
+              "-ref": "TITRE"
+            },
+            "xs:group": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "0",
+              "-ref": "texte"
+            }
+          }
+        }
+      },
+      {
+        "-name": "LISTE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Liste Ã  points.
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "TITRE"
+              },
+              {
+                "-maxOccurs": "unbounded",
+                "-minOccurs": "0",
+                "-ref": "EL"
+              }
+            ]
+          },
+          "xs:attribute": [
+            {
+              "-name": "type",
+              "-type": "itemtype",
+              "-use": "optional"
+            },
+            {
+              "-name": "couleur_puce",
+              "-type": "CSScolor",
+              "-use": "optional"
+            },
+            {
+              "-name": "couleur_texte",
+              "-type": "CSScolor",
+              "-use": "optional"
+            },
+            {
+              "-name": "image_puce",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "mode",
+              "-type": "list_mode",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "EL",
+        "xs:annotation": {
+          "xs:documentation": "
+          Elément de liste
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:choice": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "xs:element": [
+              { "-ref": "LISTE" },
+              { "-ref": "COMMENTAIRE" }
+            ],
+            "xs:group": { "-ref": "texte" }
+          }
+        }
+      },
+      {
+        "-name": "LISTEDEF",
+        "xs:annotation": {
+          "xs:documentation": "
+          Liste de définitions
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": {
+              "-maxOccurs": "1",
+              "-minOccurs": "0",
+              "-ref": "TITRE"
+            },
+            "xs:sequence": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "1",
+              "xs:element": [
+                { "-ref": "TERME" },
+                { "-ref": "DEF" }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "-name": "TERME",
+        "xs:annotation": {
+          "xs:documentation": "
+          Terme d'une liste de définitions
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          }
+        }
+      },
+      {
+        "-name": "DEF",
+        "xs:annotation": {
+          "xs:documentation": "
+          Définition pour une liste de definitions
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          }
+        }
+      },
+      {
+        "-name": "TABLEAU",
+        "xs:complexType": {
+          "xs:sequence": {
+            "-maxOccurs": "unbounded",
+            "xs:element": { "-ref": "LT" }
+          }
+        }
+      },
+      {
+        "-name": "LT",
+        "xs:annotation": {
+          "xs:documentation": "
+          Ligne de tableau
+          "
+        },
+        "xs:complexType": {
+          "xs:choice": {
+            "xs:sequence": [
+              {
+                "xs:element": {
+                  "-maxOccurs": "unbounded",
+                  "-minOccurs": "0",
+                  "-ref": "ET"
+                }
+              },
+              {
+                "xs:element": {
+                  "-maxOccurs": "unbounded",
+                  "-minOccurs": "0",
+                  "-ref": "CT"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "CT",
+        "xs:annotation": {
+          "xs:documentation": "
+          Cellule de tableau
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:choice": {
+            "xs:group": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "0",
+              "-ref": "texte"
+            },
+            "xs:element": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "0",
+              "-ref": "LISTE"
+            }
+          },
+          "xs:attribute": [
+            {
+              "-name": "rowspan",
+              "-type": "xs:positiveInteger",
+              "-use": "optional"
+            },
+            {
+              "-name": "colspan",
+              "-type": "xs:positiveInteger",
+              "-use": "optional"
+            },
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "ET",
+        "xs:annotation": {
+          "xs:documentation": "
+          Cellule entête de tableau
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          },
+          "xs:attribute": [
+            {
+              "-name": "colspan",
+              "-type": "xs:positiveInteger",
+              "-use": "optional"
+            },
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "EXEMPLE",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:sequence": {
+            "xs:element": {
+              "-maxOccurs": "1",
+              "-minOccurs": "0",
+              "-ref": "TITRE"
+            },
+            "xs:group": {
+              "-maxOccurs": "unbounded",
+              "-minOccurs": "0",
+              "-ref": "texte"
+            }
+          },
+          "xs:attribute": {
+            "-name": "label",
+            "-type": "xs:string",
+            "-use": "optional"
+          }
+        }
+      },
+      {
+        "-name": "EMPHASE",
+        "-type": "xs:string",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "CODE",
+        "xs:complexType": {
+          "xs:simpleContent": {
+            "xs:extension": {
+              "-base": "xs:string",
+              "xs:attribute": [
+                {
+                  "-name": "textcolor",
+                  "-type": "Allcolors",
+                  "-use": "optional"
+                },
+                {
+                  "-name": "backcolor",
+                  "-type": "Allcolors",
+                  "-use": "optional"
+                },
+                {
+                  "-name": "image",
+                  "-type": "xs:anyURI",
+                  "-use": "optional"
+                },
+                {
+                  "-name": "font",
+                  "-type": "xs:string",
+                  "-use": "optional"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "-name": "CODE_HIGH",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          }
+        }
+      },
+      {
+        "-name": "CODE_COLS",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          },
+          "xs:attribute": [
+            {
+              "-name": "nbcols",
+              "-type": "xs:integer",
+              "-use": "optional"
+            },
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "ESP",
+        "xs:annotation": {
+          "xs:documentation": "
+          Espace insécable.
+          "
+        }
+      },
+      {
+        "-name": "BR",
+        "xs:annotation": {
+          "xs:documentation": "
+          Saut de ligne. Utiliser PARAGRAPHE de préférence pour séparer les paragraphes.
+          "
+        }
+      },
+      {
+        "-name": "LIEN_EXTERNE",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:attribute": {
+            "-name": "href",
+            "-type": "xs:anyURI",
+            "-use": "required"
+          }
+        }
+      },
+      {
+        "-name": "LIEN_INTERNE",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:attribute": {
+            "-name": "num",
+            "-type": "xs:integer",
+            "-use": "required"
+          }
+        }
+      },
+      {
+        "-name": "EQUATION",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "texte",
+              "-type": "xs:string",
+              "-use": "required"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "required"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "IMAGE",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "fichier",
+              "-type": "xs:anyURI",
+              "-use": "required"
+            },
+            {
+              "-name": "alt",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "largeur",
+              "-type": "percentage",
+              "-use": "optional"
+            },
+            {
+              "-name": "hauteur",
+              "-type": "percentage",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "ENVIMAGE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Environnement pour une image, avec un titre et une légende.
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "TITRE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "1",
+                "-ref": "IMAGE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "LEGENDE"
+              }
+            ]
+          },
+          "xs:attribute": [
+            {
+              "-name": "titlecolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "titlefont",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "titleback",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "VIDEO",
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "fichier",
+              "-type": "xs:anyURI",
+              "-use": "required"
+            },
+            {
+              "-name": "largeur",
+              "-type": "percentage",
+              "-use": "optional"
+            },
+            {
+              "-name": "hauteur",
+              "-type": "percentage",
+              "-use": "optional"
+            },
+            {
+              "-name": "controls",
+              "-type": "xs:boolean",
+              "-use": "optional"
+            },
+            {
+              "-name": "poster",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "autoplay",
+              "-type": "xs:boolean",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "ENVIDEO",
+        "xs:annotation": {
+          "xs:documentation": "
+          Environnement pour une video, avec un titre et une légende.
+          "
+        },
+        "xs:complexType": {
+          "xs:sequence": {
+            "xs:element": [
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "TITRE"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "1",
+                "-ref": "VIDEO"
+              },
+              {
+                "-maxOccurs": "1",
+                "-minOccurs": "0",
+                "-ref": "LEGENDE"
+              }
+            ]
+          },
+          "xs:attribute": [
+            {
+              "-name": "titlecolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "titlefont",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "titleback",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "image",
+              "-type": "xs:anyURI",
+              "-use": "optional"
+            },
+            {
+              "-name": "textcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "backcolor",
+              "-type": "Allcolors",
+              "-use": "optional"
+            },
+            {
+              "-name": "font",
+              "-type": "xs:string",
+              "-use": "optional"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "LEGENDE",
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:group": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "-ref": "texte"
+          }
+        }
+      },
+      {
+        "-name": "COMMENTAIRE",
+        "xs:annotation": {
+          "xs:documentation": "
+          Texte qui ne sera pas affiché en sortie, sauf si le paramêtre \"commentaires\" de la feuille de style a la valeur \"oui\".
+          "
+        },
+        "xs:complexType": {
+          "-mixed": "true",
+          "xs:choice": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "xs:element": [
+              { "-ref": "PARAGRAPHE" },
+              { "-ref": "LISTE" },
+              { "-ref": "LISTEDEF" },
+              { "-ref": "TABLEAU" }
+            ],
+            "xs:group": { "-ref": "texte" }
+          }
+        }
+      },
+      {
+        "-name": "HTML",
+        "xs:annotation": {
+          "xs:documentation": "
+          Code HTML Ã  afficher \"tel quel\"
+          "
+        },
+        "xs:complexType": { "-mixed": "true" }
+      },
+      {
+        "-name": "APPLET",
+        "xs:annotation": {
+          "xs:documentation": "
+          Appliquette Java.
+          "
+        },
+        "xs:complexType": {
+          "xs:choice": {
+            "-maxOccurs": "unbounded",
+            "-minOccurs": "0",
+            "xs:element": { "-ref": "PARAM" }
+          },
+          "xs:attribute": [
+            {
+              "-name": "classe",
+              "-type": "xs:string",
+              "-use": "required"
+            },
+            {
+              "-name": "archive",
+              "-type": "xs:string",
+              "-use": "optional"
+            },
+            {
+              "-name": "largeur",
+              "-type": "xs:positiveInteger",
+              "-use": "required"
+            },
+            {
+              "-name": "hauteur",
+              "-type": "xs:positiveInteger",
+              "-use": "required"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "PARAM",
+        "xs:annotation": {
+          "xs:documentation": "
+          parametre d'applet
+          "
+        },
+        "xs:complexType": {
+          "xs:attribute": [
+            {
+              "-name": "nom",
+              "-type": "xs:string",
+              "-use": "required"
+            },
+            {
+              "-name": "valeur",
+              "-type": "xs:string",
+              "-use": "required"
+            }
+          ]
+        }
+      }
+    ],
+    "xs:simpleType": [
+      {
+        "-name": "ouinon",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "oui" },
+            { "-value": "non" }
+          ]
+        }
+      },
+      {
+        "-name": "EmailAddress",
+        "xs:annotation": {
+          "xs:documentation": "
+          Email address.
+          "
+        },
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:pattern": {
+            "-value": "([a-zA-Z0-9_\\-])([a-zA-Z0-9_\\-\\.]*)@(\\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}|((([a-zA-Z0-9\\-]+)\\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\])"
+          }
+        }
+      },
+      {
+        "-name": "percentage",
+        "xs:restriction": {
+          "-base": "xs:integer",
+          "xs:minInclusive": { "-value": "0" },
+          "xs:maxInclusive": { "-value": "100" }
+        }
+      },
+      {
+        "-name": "itemtype",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "square" },
+            { "-value": "disc" },
+            { "-value": "circle" },
+            { "-value": "A" },
+            { "-value": "1" },
+            { "-value": "i" },
+            { "-value": "I" }
+          ]
+        }
+      },
+      {
+        "-name": "CSScolor",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "aqua" },
+            { "-value": "black" },
+            { "-value": "blue" },
+            { "-value": "gray" },
+            { "-value": "green" },
+            { "-value": "lime" },
+            { "-value": "maroon" },
+            { "-value": "navy" },
+            { "-value": "olive" },
+            { "-value": "orange" },
+            { "-value": "purple" },
+            { "-value": "red" },
+            { "-value": "silver" },
+            { "-value": "teal" },
+            { "-value": "white" },
+            { "-value": "yellow" }
+          ]
+        }
+      },
+      {
+        "-name": "W3Ccolor",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "aliceblue" },
+            { "-value": "antiquewhite" },
+            { "-value": "aqua" },
+            { "-value": "aquamarine" },
+            { "-value": "azure" },
+            { "-value": "beige" },
+            { "-value": "bisque" },
+            { "-value": "black" },
+            { "-value": "blanchedalmond" },
+            { "-value": "blue" },
+            { "-value": "blueviolet" },
+            { "-value": "brown" },
+            { "-value": "burlywood" },
+            { "-value": "cadetblue" },
+            { "-value": "chartreuse" },
+            { "-value": "chocolate" },
+            { "-value": "coral" },
+            { "-value": "cornflowerblue" },
+            { "-value": "cornsilk" },
+            { "-value": "crimson" },
+            { "-value": "cyan" },
+            { "-value": "darkblue" },
+            { "-value": "darkcyan" },
+            { "-value": "darkgoldenrod" },
+            { "-value": "darkgray" },
+            { "-value": "darkgreen" },
+            { "-value": "darkkhaki" },
+            { "-value": "darkmagenta" },
+            { "-value": "darkolivegreen" },
+            { "-value": "darkorange" },
+            { "-value": "darkorchid" },
+            { "-value": "darkred" },
+            { "-value": "darksalmon" },
+            { "-value": "darkseagreen" },
+            { "-value": "darkslateblue" },
+            { "-value": "darkslategray" },
+            { "-value": "darkturquoise" },
+            { "-value": "darkviolet" },
+            { "-value": "deeppink" },
+            { "-value": "deepskyblue" },
+            { "-value": "dimgray" },
+            { "-value": "dodgerblue" },
+            { "-value": "firebrick" },
+            { "-value": "floralwhite" },
+            { "-value": "forestgreen" },
+            { "-value": "fuchsia" },
+            { "-value": "gainsboro" },
+            { "-value": "ghostwhite" },
+            { "-value": "gold" },
+            { "-value": "goldenrod" },
+            { "-value": "gray" },
+            { "-value": "green" },
+            { "-value": "greenyellow" },
+            { "-value": "honeydew" },
+            { "-value": "hotpink" },
+            { "-value": "indianred" },
+            { "-value": "indigo" },
+            { "-value": "ivory" },
+            { "-value": "khaki" },
+            { "-value": "lavender" },
+            { "-value": "lavenderblush" },
+            { "-value": "lawngreen" },
+            { "-value": "lemonchiffon" },
+            { "-value": "lightblue" },
+            { "-value": "lightcoral" },
+            { "-value": "lightcyan" },
+            { "-value": "lightgoldenrodyellow" },
+            { "-value": "lightgreen" },
+            { "-value": "lightgrey" },
+            { "-value": "lightpink" },
+            { "-value": "lightsalmon" },
+            { "-value": "lightseagreen" },
+            { "-value": "lightskyblue" },
+            { "-value": "lightslategray" },
+            { "-value": "lightsteelblue" },
+            { "-value": "lightyellow" },
+            { "-value": "lime" },
+            { "-value": "limegreen" },
+            { "-value": "linen" },
+            { "-value": "magenta" },
+            { "-value": "maroon" },
+            { "-value": "mediumaquamarine" },
+            { "-value": "mediumblue" },
+            { "-value": "mediumorchid" },
+            { "-value": "mediumpurple" },
+            { "-value": "mediumseagreen" },
+            { "-value": "mediumslateblue" },
+            { "-value": "mediumspringgreen" },
+            { "-value": "mediumturquoise" },
+            { "-value": "mediumvioletred" },
+            { "-value": "midnightblue" },
+            { "-value": "mintcream" },
+            { "-value": "mistyrose" },
+            { "-value": "moccasin" },
+            { "-value": "navajowhite" },
+            { "-value": "navy" },
+            { "-value": "oldlace" },
+            { "-value": "olive" },
+            { "-value": "olivedrab" },
+            { "-value": "orange" },
+            { "-value": "orangered" },
+            { "-value": "orchid" },
+            { "-value": "palegoldenrod" },
+            { "-value": "palegreen" },
+            { "-value": "paleturquoise" },
+            { "-value": "palevioletred" },
+            { "-value": "papayawhip" },
+            { "-value": "peachpuff" },
+            { "-value": "peru" },
+            { "-value": "pink" },
+            { "-value": "plum" },
+            { "-value": "powderblue" },
+            { "-value": "purple" },
+            { "-value": "red" },
+            { "-value": "rosybrown" },
+            { "-value": "royalblue" },
+            { "-value": "saddlebrown" },
+            { "-value": "salmon" },
+            { "-value": "sandybrown" },
+            { "-value": "seagreen" },
+            { "-value": "seashell" },
+            { "-value": "sienna" },
+            { "-value": "silver" },
+            { "-value": "skyblue" },
+            { "-value": "slateblue" },
+            { "-value": "slategray" },
+            { "-value": "snow" },
+            { "-value": "springgreen" },
+            { "-value": "steelblue" },
+            { "-value": "tan" },
+            { "-value": "teal" },
+            { "-value": "thistle" },
+            { "-value": "tomato" },
+            { "-value": "turquoise" },
+            { "-value": "violet" },
+            { "-value": "wheat" },
+            { "-value": "white" },
+            { "-value": "whitesmoke" },
+            { "-value": "yellow" },
+            { "-value": "yellowgreen" }
+          ]
+        }
+      },
+      {
+        "-name": "RGBcolor",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:pattern": {
+            "-value": "#[0-9A-F]{6}"
+          }
+        }
+      },
+      {
+        "-name": "Allcolors",
+        "xs:union": { "-memberTypes": "CSScolor W3Ccolor RGBcolor" }
+      },
+      {
+        "-name": "list_mode",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "accordeon" },
+            { "-value": "pliage" },
+            { "-value": "incremental" },
+            { "-value": "incremental_ombre" },
+            { "-value": "incremental_allume" },
+            { "-value": "progressif" }
+          ]
+        }
+      },
+      {
+        "-name": "transitiontype",
+        "xs:restriction": {
+          "-base": "xs:string",
+          "xs:enumeration": [
+            { "-value": "none" },
+            { "-value": "crossfade" },
+            { "-value": "fadethrough" },
+            { "-value": "carousel" },
+            { "-value": "slide-in" },
+            { "-value": "toss" },
+            { "-value": "burst" }
+          ]
+        }
+      }
+    ],
+    "xs:group": {
+      "-name": "texte",
+      "xs:annotation": {
+        "xs:documentation": "
+
+        Ensemble de texte et d'éléments mélanges à  du texte
+
+        "
+      },
+      "xs:choice": {
+        "xs:element": [
+          { "-ref": "EMPHASE" },
+          { "-ref": "CODE" },
+          { "-ref": "CODE_HIGH" },
+          { "-ref": "CODE_COLS" },
+          { "-ref": "ESP" },
+          { "-ref": "BR" },
+          { "-ref": "LIEN_EXTERNE" },
+          { "-ref": "LIEN_INTERNE" },
+          { "-ref": "IMAGE" },
+          { "-ref": "VIDEO" },
+          { "-ref": "EQUATION" },
+          { "-ref": "EXEMPLE" }
+        ]
+      }
+    }
+  }
+}

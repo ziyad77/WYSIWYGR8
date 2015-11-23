@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>XEDITOR EAST créateur de présentation EAST</title>
+<link rel="stylesheet" href="stylesheets/reset.css" type="text/css" />
+<link rel="stylesheet" href="stylesheets/demo.css" type="text/css" />
+<link rel="stylesheet" href="../css/jquery.xmleditor.css" type="text/css" />
+<script src="../lib/ace/src-min/ace.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<script src="../lib/json2.js"></script>
+<script src="../lib/cycle.js"></script>
+<script src="../lib/jquery.autosize-min.js"></script>
+<script src="../jquery.xmleditor.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h1>XEDITOR Créateur de présentation EAST</h1>
+			<a href="https://github.com/ziyad77/WYSIWYGR8">View
+				le projet sur GitHub <small>Ziyad77/XEDITOR</small>
+			</a>
+		</header>
+	</div>
+	<div id="xml_editor">
+	</div>
+	<script>
+		$(function() {
+			$("#xml_editor").xmlEditor({
+				documentTitle : "Ma première presentation EAST",
+				ajaxOptions: {
+					xmlRetrievalPath: "examples/EAST.xml"
+				},
+				schema : "examples/mods.json",
+				libPath : '../lib/'
+			});
+		});
+	</script>
+	<footer>
+		<p>
+			Le projet est maintenu <a
+				href="https://github.com/ziyad77/WYSIWYGR8">XEDITOR-EAST</a>
+		</p>
+	</footer>
+</body>
+</html>
