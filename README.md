@@ -5,7 +5,7 @@ EASTOR
 
 #### Une interface WYSIWYG pour Authoring ImpressJS, Bespoke.js et EAST ####
 
-Savez vous ce que c'est que EAST?  Une démo d'une presentation EAST : http://bartaz.github.com/impress.js/#/bored
+Savez vous ce que c'est que EAST?  Une démo d'une presentation EAST : http://url-du-site.fr
 
 ### Utiliser EASTOR http://eastor.fr/editor/
 (Fonctionne sous Firefox, Chrome et Safari)
@@ -33,7 +33,7 @@ Afin de mettre en production votre EASTOR lancer `grunt build`.
 Votre EASTOR sera situé sous `Strut/dist`.
 
 
-### Grace aux appors de : ###
+### Grace aux apports de : ###
 
 * ImpressJS https://github.com/bartaz/impress.js/
 * Bespoke.js https://github.com/markdalgleish/bespoke.js
