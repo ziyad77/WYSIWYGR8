@@ -17,6 +17,7 @@ Savez vous ce que c'est que EAST?  Une démo d'une presentation EAST : http://ur
 
 
 ### Mail ###
+aziz.bouhafs@gmail.com
 z.benmss@gmail.com
 
 ### Construire son EASTOR - Créateur de présentation EAST ###
@@ -25,12 +26,12 @@ Afin de construire votre propre EASTOR, vous avez besoin de GRUNT =< 0.4.4
 
 1. Installer la dernière version de GRUNT : `npm install -g grunt-cli`
 2. Cloner le git: `git clone git://github.com/ziyad77/EASTOR.git`
-3. `cd Strut`
+3. `cd wysiwygr8`
 4. Intaller les dépendance de EASTOR: `npm install`
 5. Lancer EASTOR: `grunt server` (le serveur sera lancé sous localhost:9000)
 
 Afin de mettre en production votre EASTOR lancer `grunt build`.
-Votre EASTOR sera situé sous `Strut/dist`.
+Votre EASTOR sera situé sous `wysiwygr8/dist`.
 
 
 ### Grace aux apports de : ###
