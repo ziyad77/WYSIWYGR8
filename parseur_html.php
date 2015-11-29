@@ -4,94 +4,112 @@ function parsage($document)
 {
         /* chargement du fichier HTML */
 		
-		$contenu='';
-			
-		/*Entête du fichier XML EAST*/
-		$contenu='
-		<?xml version="1.0" encoding="ISO-8859-1"?>
-		<EAST>
-			<PREFERENCES>
-					<PUCE colorpuce="orange" level="1" type="square"/>
-					<PUCE colorpuce="green" level="2" type="disc"/>
-					<PUCE colorpuce="orange" level="3" type="circle"/>
-					<PUCE colorpuce="green" level="4" type="square"/>
-					<PAGE backcolor="#0033FF" font="Comic sans MS" linkcolor="yellow" textcolor="white"/>
-					<TITLES textcolor="white"/>
-			</PREFERENCES>';
+	$contenu='';
 		
-		/* Fichier EAST .xml */
-		$filename="east.xml";
-
-		//supprimer fichier existant
-		if( file_exists ( $filename))
-		  unlink( $filename ) ;
-
-		// 1 : on ouvre le fichier
-		$fichier = fopen($filename,"a+");
-		
-		/* Ouverture du document avec LOAD HTML FILE */
-		$doc = new DOMDocument();
-		$doc->loadHTMLFile($document);
-		
-		/*  Identification de la première balise */
+	/*Entête du fichier XML EAST*/
+	$contenu='
+	<?xml version="1.0" encoding="ISO-8859-1"?>
+	<EAST>
+		<PREFERENCES>
+				<PUCE colorpuce="orange" level="1" type="square"/>
+				<PUCE colorpuce="green" level="2" type="disc"/>
+				<PUCE colorpuce="orange" level="3" type="circle"/>
+				<PUCE colorpuce="green" level="4" type="square"/>
+				<PAGE backcolor="#0033FF" font="Comic sans MS" linkcolor="yellow" textcolor="white"/>
+				<TITLES textcolor="white"/>
+		</PREFERENCES>';
+	
+	/* Fichier EAST .xml */
+	$filename="east.xml";
+	
+	//supprimer fichier existant
+	if( file_exists ( $filename))
+	  unlink( $filename ) ;
+	
+	// 1 : on ouvre le fichier
+	$fichier = fopen($filename,"a+");
+	
+	/* Ouverture du document avec LOAD HTML FILE */
+	$doc = new DOMDocument();
+	$doc->loadHTMLFile($document);
+	
+	/*  Identification de la première balise */
         $elements = $doc->getElementsByTagName('div'); 
 		
-		/* variable qui stocke les balises EAST XML */
+	/* variable qui stocke les balises EAST XML */
         $resultat_xml = '';
 		
-		/* récupère la première balise (parent) du fichier HTML */
+	/* récupère la première balise (parent) du fichier HTML */
         $arbre = $elements->item(0);
 		
-		/* éxecution de la fonction pour récupérer les balises enfants */
+	/* éxecution de la fonction pour récupérer les balises enfants */
         $resultat_xml = parsage_enfant($arbre);
- 
+        
+        $contenu .= $resultat_xml;
 		
+	$contenu .='
+	</EAST>
+	';
+
+	/* injecter les balises EAST XML dans le fichier east.xml (écriture) */
+	fputs($fichier, $contenu); 
+	
+	/* fermeture du fichier */
+	fclose($fichier);
+ 
+	/*Contenu du fichier XML EAST */	
         return $resultat_xml;
 }
 
-
+/* La fonction permet de remplacer les balises html par des balises XML EAST */
 function parsage_normal($noeud, $contenu_a_inserer='')
 {
-     $balise_1 = array('div' => '<SECTION>',
-						'h1' => '<TITRE>',
-						'h2' => '<TITRE>',
-						'ul' => '<LISTE>',
-						'li' => '<EL>',
-						'a' => '<LIEN_EXTERNE>',
-						'p' => '<PARAGRAPHE>',
-						'embed' => '<VIDEO>',
-						'#text' => ''
-                                ); // Tableau des balises ouvrantes
+     	$balise_1 = array('div' => '<SECTION>',
+			'h1' => '<TITRE>',
+			'h2' => '<TITRE>',
+			'h3' => '<TITRE>',
+			'h4' => '<TITRE>',
+			'h5' => '<TITRE>',
+			'h6' => '<TITRE>',
+			'ul' => '<LISTE>',
+			'li' => '<EL>',
+			'a' => '<LIEN_EXTERNE>',
+			'p' => '<PARAGRAPHE>',
+			'embed' => '<VIDEO>',
+			'#text' => ''); // Tableau des balises ouvrantes
                                                 
 	$balise_2 = array('div' => '</SECTION>',
-							'h1' => '</TITRE>',
-							'h2' => '</TITRE>',
-							'ul' => '</LISTE>',
-							'li' => '</EL>',
-							'a' => '</LIEN_EXTERNE>',
-							'p' => '</PARAGRAPHE>',
-							'embed' => '</VIDEO>',
-							'#text' => ''
-							); // Tableau des balises fermantes
- 
+			'h1' => '</TITRE>',
+			'h2' => '</TITRE>',
+			'h3' => '</TITRE>',
+			'h4' => '</TITRE>',
+			'h5' => '</TITRE>',
+			'h6' => '</TITRE>',
+			'ul' => '</LISTE>',
+			'li' => '</EL>',
+			'a' => '</LIEN_EXTERNE>',
+			'p' => '</PARAGRAPHE>',
+			'embed' => '</VIDEO>',
+			'#text' => ''); // Tableau des balises fermantes
+	
 	$attributs = array('position' => 'valeur',
-									'flottant' => 'valeur',
-									'taille' => 'valeur',
-									'couleur' => 'nom',
-									'police' => 'nom',
-									'lien' => 'url',
-									'image' => 'legende',
-									'citation' => 'auteur'); // Tableau des attributs
+			'flottant' => 'valeur',
+			'taille' => 'valeur',
+			'couleur' => 'nom',
+			'police' => 'nom',
+			'lien' => 'url',
+			'image' => 'legende',
+			'citation' => 'auteur'); // Tableau des attributs
                                                                 
 	$nom = $noeud->nodeName; // On récupère le nom du nœud	
 	
 	if(!empty($contenu_a_inserer)) // On détermine si on veut spécifier du contenu préparsé
 	{
-			$contenu = $contenu_a_inserer; // Si c'est le cas, on met la variable de fonction en contenu
+		$contenu = $contenu_a_inserer; // Si c'est le cas, on met la variable de fonction en contenu
 	}
 	else
 	{
-			$contenu = $noeud->nodeValue; // Sinon, le contenu du nœud
+		$contenu = $noeud->nodeValue; // Sinon, le contenu du nœud
 	}
 	
 	$premiere_balise = $balise_1[$nom];     // Première balise (ouvrante)
@@ -100,13 +118,12 @@ function parsage_normal($noeud, $contenu_a_inserer='')
 	if($noeud->hasAttributes() and $nom != 'img') // On remplace les attributs (sauf pour les images)
 	{              
 					
-			$un = $noeud->attributes->getNamedItem($attributs[$nom])->nodeValue; // Récupération de la valeur de l'attribut 
-			$premiere_balise = str_replace("$1", $un, $premiere_balise); // On remplace la valeur $1 par celle de l'attribut
+		$un = $noeud->attributes->getNamedItem($attributs[$nom])->nodeValue; // Récupération de la valeur de l'attribut 
+		$premiere_balise = str_replace("$1", $un, $premiere_balise); // On remplace la valeur $1 par celle de l'attribut
 			
 	}*/
         
         if($nom == 'img') // Cas particulier des images
-                
         {
                 $un = $contenu; // Dans ce cas, c'est $1 qui récupère le contenu du nœud (l'URL de l'image).
                 $premiere_balise = str_replace("$1", $un, $premiere_balise);
@@ -168,6 +185,6 @@ function parsage_enfant($noeud)// Fonction de parsage d'enfants
 }
 
 
-echo parsage('test.html'); // Mettez le nom du fichier XML
+echo parsage('test.html'); // Mettez le nom du fichier HTML
 
 ?>
