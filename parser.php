@@ -90,7 +90,7 @@ foreach( $ul as $liste)
 }
 
 /**************************************/
-//LIEN
+//LIEN EXTERNE
 
  echo '<br><br>';
 
@@ -100,6 +100,19 @@ foreach($html1->find('a') as $element)
 	echo $element->plaintext . '<br>';
 	$contenu .='
 		<LIEN_EXTERNE href="'.$element->href.'">'.$element->plaintext.'</LIEN_EXTERNE>';
+}
+
+/**************************************/
+//LIEN INTERNE
+
+ echo '<br><br>';
+
+foreach($html1->find('a') as $element) 
+{
+	echo $element->href . '<br>';
+	echo $element->plaintext . '<br>';
+	$contenu .='
+		<LIEN_INTERNE href="'.$element->href.'">'.$element->plaintext.'</LIEN_INTERNE>';
 }
        
 /************************************/
@@ -158,7 +171,15 @@ foreach($html1->find(".overlay") as $element)
 	$contenu .='
 		<FORME></FORME>';	
 	
-}    
+}  
+
+foreach($html1->find("svg") as $element) 
+{
+	
+	$contenu .='
+		<FORME></FORME>';	
+	
+}  
 
 /**************************************/
 //VIDEO
@@ -199,7 +220,7 @@ $contenu .='
 </EAST>
 ';
 
-
+//insertion des balises XML EAST dans le fichier east.xml
 fputs($fichier, $contenu); 
 fclose($fichier);
 
