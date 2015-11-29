@@ -74,7 +74,9 @@ function parsage_normal($noeud, $contenu_a_inserer='')
 			'ul' => '<LISTE>',
 			'li' => '<EL>',
 			'a' => '<LIEN_EXTERNE>',
+			'a' => '<LIEN_INTERNE>',
 			'p' => '<PARAGRAPHE>',
+			'img' => '<IMAGE>',
 			'embed' => '<VIDEO>',
 			'#text' => ''); // Tableau des balises ouvrantes
                                                 
@@ -88,7 +90,9 @@ function parsage_normal($noeud, $contenu_a_inserer='')
 			'ul' => '</LISTE>',
 			'li' => '</EL>',
 			'a' => '</LIEN_EXTERNE>',
+			'a' => '</LIEN_INTERNE>',
 			'p' => '</PARAGRAPHE>',
+			'img' => '</IMAGE>',
 			'embed' => '</VIDEO>',
 			'#text' => ''); // Tableau des balises fermantes
 	
@@ -97,9 +101,16 @@ function parsage_normal($noeud, $contenu_a_inserer='')
 			'taille' => 'valeur',
 			'couleur' => 'nom',
 			'police' => 'nom',
-			'lien' => 'url',
+			'a' => '',
 			'image' => 'legende',
-			'citation' => 'auteur'); // Tableau des attributs
+			'citation' => 'auteur',
+			'div' => '',
+			'div' => '',
+			'embed' => '',
+			'embed' => '',
+			'embed' => '',
+			'embed' => '',
+			'embed' => ''); // Tableau des attributs
                                                                 
 	$nom = $noeud->nodeName; // On récupère le nom du nœud	
 	
@@ -114,14 +125,15 @@ function parsage_normal($noeud, $contenu_a_inserer='')
 	
 	$premiere_balise = $balise_1[$nom];     // Première balise (ouvrante)
 	
-	/*
+	
 	if($noeud->hasAttributes() and $nom != 'img') // On remplace les attributs (sauf pour les images)
 	{              
+		
 					
-		$un = $noeud->attributes->getNamedItem($attributs[$nom])->nodeValue; // Récupération de la valeur de l'attribut 
-		$premiere_balise = str_replace("$1", $un, $premiere_balise); // On remplace la valeur $1 par celle de l'attribut
+		//$un = $noeud->attributes->getNamedItem($attributs[$nom])->nodeValue; // Récupération de la valeur de l'attribut 
+		//$premiere_balise = str_replace("$1", $un, $premiere_balise); // On remplace la valeur $1 par celle de l'attribut
 			
-	}*/
+	}
         
         if($nom == 'img') // Cas particulier des images
         {
