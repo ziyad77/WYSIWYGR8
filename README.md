@@ -3,7 +3,7 @@ EASTOR
 
 [![Facelift](https://f.cloud.github.com/assets/1009003/515405/f1003c6a-be74-11e2-84b9-14776c652afb.png)](http://strut.io)
 
-#### Une interface WYSIWYG pour Authoring ImpressJS, Bespoke.js et EAST ####
+#### Une interface WYSIWYG pour ImpressJS, Bespoke.js et EAST ####
 
 Savez vous ce que c'est que EAST?  Une démo d'une presentation EAST : http://url-du-site.fr
 
@@ -13,12 +13,12 @@ Savez vous ce que c'est que EAST?  Une démo d'une presentation EAST : http://ur
 ### Site officiel: http://eastor.fr ###
 
 #### Connaitre EASTOR
-* Preview : http://www.youtube.com/watch?v=zA5s8wwme44
+* Preview : https://www.youtube.com/channel/UCPzM-Ei5PcFe-8owTeHhhRg/videos
 
 
 ### Mail ###
-aziz.bouhafs@gmail.com
-z.benmss@gmail.com
+* Aziz.bouhafs@gmail.com
+* Z.benmss@gmail.com
 
 ### Construire son EASTOR - Créateur de présentation EAST ###
 Afin de construire votre propre EASTOR, vous avez besoin de GRUNT =< 0.4.4
@@ -38,11 +38,7 @@ Votre EASTOR sera situé sous `wysiwygr8/dist`.
 
 * ImpressJS https://github.com/bartaz/impress.js/
 * Bespoke.js https://github.com/markdalgleish/bespoke.js
-* BackboneJS http://documentcloud.github.com/backbone/
-* Spectrum https://github.com/bgrins/spectrum
-* Etch http://etchjs.com/
 * Bootstrap http://twitter.github.io/bootstrap/
-* lodash http://lodash.com/
 * mousetrap http://craig.is/killing/mice
 * RequireJS http://requirejs.org/
 * JQuery http://jquery.com/
